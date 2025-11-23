@@ -14,7 +14,7 @@ This project demonstrates:
 
 project-folder/
 │
-├── train.py      # Train and save a model
-├── app.py        # Streamlit app for prediction
-├── README.md     # Project documentation
-└── .gitignore    # Recommended ignore file
+├── train.py  
+├── app.py        
+├── README.md     
+└── .gitignore    
