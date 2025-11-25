@@ -11,10 +11,3 @@ This project demonstrates:
 - Saving models with joblib
 
 - A Streamlit web app for interactive prediction
-
-project-folder/
-│
-├── train.py  
-├── app.py        
-├── README.md     
-└── .gitignore    

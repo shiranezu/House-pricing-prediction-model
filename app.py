@@ -4,7 +4,7 @@ import joblib
 from sklearn.datasets import fetch_california_housing
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
 
-st.title("🏠 California House Price Predictor (Linear, Ridge, Lasso)")
+st.title(" California House Price Predictor (Linear, Ridge, Lasso)")
 
 
 housing = fetch_california_housing()
