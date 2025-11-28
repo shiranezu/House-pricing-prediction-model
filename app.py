@@ -96,7 +96,7 @@ selected_feature = st.selectbox(
 )
 
 fig, ax = plt.subplots()
-ax.bar(X[selected_feature], bins=30, edgecolor='black', color= 'grey')
+ax.bar(X[selected_feature], bins=30, edgecolor='black')
 ax.set_title(f"Distribution of {selected_feature}")
 ax.set_xlabel(selected_feature)
 ax.set_ylabel("Frequency")
