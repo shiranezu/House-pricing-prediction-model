@@ -65,40 +65,40 @@ if st.button("Predict House Price"):
 
 
 
-st.write("### 📊 Feature Distribution (Bar Chart)")
-
-selected_feature = st.selectbox(
-    "Select a feature to visualize:",
-    X.columns
-)
-
-# Bin continuous values into categories (bar chart works better this way)
-binned_values = pd.cut(X[selected_feature], bins=20)
-
-value_counts = binned_values.value_counts().sort_index()
-
-fig, ax = plt.subplots(figsize=(10, 4))
-ax.bar(value_counts.index.astype(str), value_counts.values)
-ax.set_title(f"Bar Chart of {selected_feature}")
-ax.set_xlabel("Binned Values")
-ax.set_ylabel("Frequency")
-
-plt.xticks(rotation=45)
-
-st.pyplot(fig)
-
-
-# st.write("Histogram Feature Distribution")
+# st.write("### 📊 Feature Distribution (Bar Chart)")
 
 # selected_feature = st.selectbox(
 #     "Select a feature to visualize:",
 #     X.columns
 # )
 
-# fig, ax = plt.subplots()
-# ax.bar(X[selected_feature], bins=30, edgecolor='black', color= 'grey')
-# ax.set_title(f"Distribution of {selected_feature}")
-# ax.set_xlabel(selected_feature)
+# # Bin continuous values into categories (bar chart works better this way)
+# binned_values = pd.cut(X[selected_feature], bins=20)
+
+# value_counts = binned_values.value_counts().sort_index()
+
+# fig, ax = plt.subplots(figsize=(10, 4))
+# ax.bar(value_counts.index.astype(str), value_counts.values)
+# ax.set_title(f"Bar Chart of {selected_feature}")
+# ax.set_xlabel("Binned Values")
 # ax.set_ylabel("Frequency")
 
+# plt.xticks(rotation=45)
+
 # st.pyplot(fig)
+
+
+st.write("Histogram Feature Distribution")
+
+selected_feature = st.selectbox(
+    "Select a feature to visualize:",
+    X.columns
+)
+
+fig, ax = plt.subplots()
+ax.bar(X[selected_feature], bins=30, edgecolor='black', color= 'grey')
+ax.set_title(f"Distribution of {selected_feature}")
+ax.set_xlabel(selected_feature)
+ax.set_ylabel("Frequency")
+
+st.pyplot(fig)
