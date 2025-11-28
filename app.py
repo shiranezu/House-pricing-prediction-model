@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 import joblib
 from sklearn.datasets import fetch_california_housing
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
@@ -61,3 +62,8 @@ input_df = pd.DataFrame([inputs])
 if st.button("Predict House Price"):
     prediction = model.predict(input_df)[0] * 100000
     st.success(f"Predicted Median House Value: **${prediction:,.2f}**")
+
+st.map(pd.DataFrame(housing.data, columns=housing.feature_names)[
+    ['Latitude', 'Longitude']]
+    
+    )
