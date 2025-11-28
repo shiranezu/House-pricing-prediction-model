@@ -63,7 +63,23 @@ if st.button("Predict House Price"):
     prediction = model.predict(input_df)[0] * 100000
     st.success(f"Predicted Median House Value: **${prediction:,.2f}**")
 
-st.map(pd.DataFrame(housing.data, columns=housing.feature_names)[
-    ['Latitude', 'Longitude']]
+# st.map(pd.DataFrame(housing.data, columns=housing.feature_names)[
+#     ['Latitude', 'Longitude']]
     
-    )
+#     )
+
+
+st.write("Histogram Feature Distribution")
+
+selected_feature = st.selectbox(
+    "Select a feature to visualize:",
+    X.columns
+)
+
+fig, ax = plt.subplots()
+ax.hist(X[selected_feature], bins=30, edgecolor='black')
+ax.set_title(f"Distribution of {selected_feature}")
+ax.set_xlabel(selected_feature)
+ax.set_ylabel("Frequency")
+
+st.pyplot(fig)
