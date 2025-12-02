@@ -61,15 +61,12 @@ input_df = pd.DataFrame([inputs])
 
 if st.button("Predict House Price"):
     raw_pred = model.predict(input_df)[0]
-    # Convert to dollars
     prediction = raw_pred * 100000
-    # Set minimum realistic price
-    MIN_PRICE =  random.randint(30000, 50000)  # you can choose any value
+    MIN_PRICE =  random.randint(30000, 50000)
     if prediction < MIN_PRICE:
         prediction = MIN_PRICE
 
     st.success(f"Predicted Median House Value: **${prediction:,.2f}**")
-
 
 st.write("### Feature Distribution (Histogram)")
 
