@@ -60,10 +60,12 @@ input_df = pd.DataFrame([inputs])
 
 if st.button("Predict House Price"):
     raw_pred = model.predict(input_df)[0]
-    raw_pred -= 1     # shift back to original scale
-    raw_pred = max(raw_pred, 0)
+    # Convert to dollars
     prediction = raw_pred * 100000
-
+    # Set minimum realistic price
+    MIN_PRICE = 30000   # you can choose any value
+    if prediction < MIN_PRICE:
+        prediction = MIN_PRICE
 
     st.success(f"Predicted Median House Value: **${prediction:,.2f}**")
 
