@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
+import random
 import joblib
 from sklearn.datasets import fetch_california_housing
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
@@ -64,7 +64,7 @@ if st.button("Predict House Price"):
     # Convert to dollars
     prediction = raw_pred * 100000
     # Set minimum realistic price
-    MIN_PRICE =  np.random(30000, 40000)  # you can choose any value
+    MIN_PRICE =  random.randint(30000, 50000)  # you can choose any value
     if prediction < MIN_PRICE:
         prediction = MIN_PRICE
 
