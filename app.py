@@ -36,7 +36,6 @@ if option == "Train new model now":
     model.fit(X, y)
     st.sidebar.success(f"{model_choice} trained!")
 
-# Load model from joblib file
 else:
     filename = f"{model_choice}_california.joblib"
     try:
@@ -50,7 +49,7 @@ else:
 st.write("### Enter feature values:")
 inputs = {}
 
-# Create inputs for each dataset feature
+
 for feature in X.columns:
     inputs[feature] = st.number_input(
         feature,
@@ -60,7 +59,11 @@ for feature in X.columns:
 input_df = pd.DataFrame([inputs])
 
 if st.button("Predict House Price"):
-    prediction = model.predict(input_df)[0] * 100000
+    # prediction = model.predict(input_df)[0] * 100000
+    raw_pred = model.predict(input_df)[0]
+    raw_pred = max(raw_pred, 0)   # prevent negative values
+    prediction = raw_pred * 100000
+
     st.success(f"Predicted Median House Value: **${prediction:,.2f}**")
 
 
