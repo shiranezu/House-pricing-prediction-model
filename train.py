@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 housing = fetch_california_housing()
 X = pd.DataFrame(housing.data, columns=housing.feature_names)
-y = housing.target
+y = housing.target + 1
 
 
 model_type = "LinearRegression"   # change to "Ridge" or "Lasso" - Model type selection
